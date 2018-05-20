@@ -2,6 +2,7 @@
 The purpose of this project is to simulate the execution of a MIPS assembly language
 program given in binary format.
 
+
 The formatting of the different types of instructions are given by the following table.
 
 <table class="wikitable">
