@@ -1,6 +1,8 @@
 # MIPS-Simulator
-The purpose of this project is to simulate the execution of a MIPS assembly language
-program given in binary format.
+The purpose of this project is to simulate the execution of a 32 bit MIPS I assembly language
+program given in binary format. This program will provide different modes that the MIPS code
+can be executed in (i.e. line by line, multiple lines, full program) as well as a GUI to show
+the current state of each register.
 
 
 The formatting of the different types of instructions are given by the following table.
