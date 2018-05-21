@@ -34,6 +34,7 @@ The formatting of the different types of instructions are given by the following
 </tbody></table>
 
 Additional reference information:
+
 http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html
 
 https://en.wikipedia.org/wiki/MIPS_architecture
