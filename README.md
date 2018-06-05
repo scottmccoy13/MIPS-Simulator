@@ -42,3 +42,5 @@ http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html
 https://en.wikipedia.org/wiki/MIPS_architecture
 
 http://www2.engr.arizona.edu/~ece369/Resources/spim/MIPSReference.pdf
+
+https://www.d.umn.edu/~gshute/mips/instruction-type-summary.xhtml
