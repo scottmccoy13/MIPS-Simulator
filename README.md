@@ -35,6 +35,10 @@ The formatting of the different types of instructions are given by the following
 </tr>
 </tbody></table>
 
+The end goal of the project will be to implement each of the instructions listed at
+this link: http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html
+
+
 Additional reference information:
 
 http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html
