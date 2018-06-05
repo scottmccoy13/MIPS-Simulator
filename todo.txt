@@ -1,3 +1,0 @@
-Move the registers and print function into a struct,
-this will be best because it will allow the command
-functions to access the registers freely

@@ -1,19 +1,21 @@
 #include <stdio.h>
 #include "mips_sim.h"
+#define  BUFFERSIZE 32
 
 int main(void)
 {
 	//DECLARATIONS
 	int c;
 	int i;
-	int LINE_BUFFER[32]; //lowest index is the leftmost digit
+	int LINE_BUFFER[BUFFERSIZE]; //lowest index is the leftmost digit
 	FILE *fp; //pointer to input file
-	
+	struct MipsSim simulator;
 
 	//INITIALIZATIONS
-	for(i = 0; i < 32; ++i)
+	for(i = 0; i < BUFFERSIZE; ++i)
 	{
 		LINE_BUFFER[i] = 0;
+		simulator->REGISTER[i] = 0;
 	}
 
 	fp = fopen("input.txt", "r");
@@ -25,6 +27,7 @@ int main(void)
 	{
 		while((c = getc(fp)) != EOF)
 		{
+			//POPULATE BUFFER
 			if(i < 32)
 			{
 				//char 0 encoding
@@ -49,8 +52,10 @@ int main(void)
 				i = 0;
 				LINE_BUFFER[i] = c;
 			}
+
+			//GET INSTRUCTION TYPE
+			
 		}
-		print_buf(LINE_BUFFER);
 		fclose(fp);
 	}
 
