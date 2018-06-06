@@ -1,11 +1,24 @@
 #include <stdio.h>
-#define NUMREGISTERS
+#define NUMREGISTERS 32
 
 //UTILITY FUNCTIONS
 void print_buf(int buf[]);
-char check_type(int byteStream);
+void build_R_tree();
+void build_I_tree();
 
-//MAIN DATA STRUCTURE
-struct MipsSim {
-	int REGISTER[NUMREGISTERS];
+//
+char check_type(int byteStream[]);
+char* check_R_inst(int byteStream[]);
+char* check_I_inst(int byteStream[]);
+char* check_J_inst(int byteStream[]);
+
+//DATA STRUCTURES
+int REGISTER[NUMREGISTERS];
+struct node {
+	char* data;
+	struct node *left;
+	struct node *right;
 };
+
+struct node *r_tree;
+struct node *i_tree;

@@ -5,17 +5,18 @@
 int main(void)
 {
 	//DECLARATIONS
-	int c;
-	int i;
+	int c;  //char read from file
+	int i;  //counter
+	char t; //type of instruction in the linebuffer (R/I/J)
+	char* instruction; //the instruction contained in linebuffer
 	int LINE_BUFFER[BUFFERSIZE]; //lowest index is the leftmost digit
 	FILE *fp; //pointer to input file
-	struct MipsSim simulator;
 
 	//INITIALIZATIONS
 	for(i = 0; i < BUFFERSIZE; ++i)
 	{
 		LINE_BUFFER[i] = 0;
-		simulator->REGISTER[i] = 0;
+		REGISTER[i] = 0;
 	}
 
 	fp = fopen("input.txt", "r");
@@ -41,20 +42,43 @@ int main(void)
 				}
 				else
 				{
-					printf("ERROR IN FILE READ\n");
+					if(c != '\n')
+						printf("ERROR IN FILE READ: char recieved: %c", c);
 				}
-				i += 1;
+				++i;
 			}
 			else
 			{
 				//if we are here then we have reached a new line
 				print_buf(LINE_BUFFER);
+				
+				//GET INSTRUCTION TYPE
+				t = check_type(LINE_BUFFER);
+				printf("Type: %c\n", t);
+
+
+				switch(t)
+				{
+					case 'R':
+
+						break;
+					case 'I':
+						break;
+					case 'J':
+						instruction = check_J_inst(LINE_BUFFER);
+						printf("Instruction recieved: %s\n\n", instruction);
+						break;
+				}
+
+
+				//RESET COUNTER AND CONTINUE
+				//you may notice that we are dropping a character
+				//from the line by reseting the counter and continuting without
+				//doing anything with the char recieved in the while statement.
+				//this is intentional as this char should just be '\n'
 				i = 0;
-				LINE_BUFFER[i] = c;
 			}
 
-			//GET INSTRUCTION TYPE
-			
 		}
 		fclose(fp);
 	}
