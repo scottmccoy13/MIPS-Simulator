@@ -41,8 +41,6 @@ this link: http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html
 
 Additional reference information:
 
-http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html
-
 https://en.wikipedia.org/wiki/MIPS_architecture
 
 http://www2.engr.arizona.edu/~ece369/Resources/spim/MIPSReference.pdf
