@@ -19,7 +19,9 @@ int main(void)
 		REGISTER[i] = 0;
 	}
 
-	fp = fopen("input.txt", "r");
+	fp = fopen("input/input.txt", "r");
+
+	build_R_tree();
 
 	//MAIN LOOP
 	//read input from file
@@ -43,7 +45,7 @@ int main(void)
 				else
 				{
 					if(c != '\n')
-						printf("ERROR IN FILE READ: char recieved: %c", c);
+						printf("ERROR IN FILE READ: char recieved: %c\n", c);
 				}
 				++i;
 			}

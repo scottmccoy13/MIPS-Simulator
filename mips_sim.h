@@ -20,5 +20,5 @@ struct node {
 	struct node *right;
 };
 
-struct node *r_tree;
-struct node *i_tree;
+struct node *r_tree_root;
+struct node *i_tree_root;

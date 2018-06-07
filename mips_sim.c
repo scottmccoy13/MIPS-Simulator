@@ -89,10 +89,10 @@ char* check_J_inst(int byteStream[])
 	 *1 bit so that is all that will be checked
 	*/
 
-	char* inst;
+	char const *inst;
 
 	//DETERMINE TYPE
 	(byteStream[5] == 0) ? (inst = "J") : (inst = "JAL");
 
-	return inst;
+	return (char *)inst;
 }
