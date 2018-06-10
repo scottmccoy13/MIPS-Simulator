@@ -23,7 +23,7 @@ struct node* newNode(char* data)
 	my_node->right = NULL;
 	my_node->left = NULL;
 
-	return(my_node);
+	return my_node;
 }
 
 void build_R_tree()
@@ -43,6 +43,7 @@ void build_R_tree()
 	int i;
 	int j;
 
+	r_tree_root = newNode("NULL");
 	fp = fopen("input/r_function_codes.txt", "r");
 	i = 0;
 	
@@ -64,29 +65,31 @@ void build_R_tree()
 				//extract function code from line
 				if(c == 48)
 				{
+					printf("%c", c);
 					function_code[i] = 0;
+					++i;
 				}
 				else if(c == 49)
 				{
+					printf("%c", c);
 					function_code[i] = 1;
+					++i;
 				}
-				else
-				{
-					if(c != 58 || i != 6) //colon encoding
-						printf("ERROR IN FILE READ: char recieved: %c\n", c);
-				}
-				++i;
 			}
 			else
 			{
+				printf("\n");
 				j = 0;
 				//extract data from line
-				printf("Function code: ");
+				printf("Function name: ");
 				while((c = getc(fp)) != ';')
 				{
-					printf("%c", c);
-					function_name[j] = c;
-					++j;
+					if(c != ':')
+					{
+						printf("%c", c);
+						function_name[j] = c;
+						++j;
+					}
 				}
 				printf("\n");
 
@@ -123,11 +126,10 @@ void build_R_tree()
 						printf("ERROR IN R TREE CREATION\n");
 					}
 				}
-
 				i = 0;
 			}
 		}
-		printf("R tree has been constructed");
+		printf("R tree has been constructed\n\n");
 	}
 }
 

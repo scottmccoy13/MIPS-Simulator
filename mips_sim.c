@@ -25,8 +25,9 @@ char check_type(int bytestream[])
 	{
 		jumpcheck[i] = 0;
 	}
-	jumpcheck[4] = 1;
+	jumpcheck[4] = 1;	
 
+	printf("Processing line: ");
 	print_buf(bytestream);
 
 	//FUNCTION BODY

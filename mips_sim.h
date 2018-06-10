@@ -5,6 +5,7 @@
 void print_buf(int buf[]);
 void build_R_tree();
 void build_I_tree();
+struct node* newNode(char* data);
 
 //
 char check_type(int byteStream[]);

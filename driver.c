@@ -52,6 +52,7 @@ int main(void)
 			else
 			{
 				//if we are here then we have reached a new line
+				printf("Line recieved: ");
 				print_buf(LINE_BUFFER);
 				
 				//GET INSTRUCTION TYPE
