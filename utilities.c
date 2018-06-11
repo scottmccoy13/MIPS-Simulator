@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "mips_sim.h"
 #define FCODESIZE 6
 #define FNAMESIZE 10
@@ -126,6 +127,8 @@ void build_R_tree()
 						printf("ERROR IN R TREE CREATION\n");
 					}
 				}
+				//reset memory for function name
+				function_name[0] = '\0';
 				i = 0;
 			}
 		}
