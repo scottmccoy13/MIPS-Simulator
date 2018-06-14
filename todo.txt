@@ -1,0 +1,4 @@
+Functions that need extra checking beyond the tree:
+
+BGEZ, BGEZAL, BLTZ share an opcode
+

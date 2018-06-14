@@ -5,7 +5,7 @@ typedef int bool;
 #define FALSE 0
 #define TRUE 1 	
 
-
+//DETERMINE TYPE (R, I, J)
 char check_type(int bytestream[])
 {
 	/*
