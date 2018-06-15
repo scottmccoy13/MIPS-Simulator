@@ -19,9 +19,10 @@ int main(void)
 		REGISTER[i] = 0;
 	}
 
-	fp = fopen("input/input.txt", "r");
+	fp = fopen("../input/input.txt", "r");
 
 	build_R_tree();
+	//build_I_tree();
 
 	//MAIN LOOP
 	//read input from file
@@ -63,9 +64,12 @@ int main(void)
 				switch(t)
 				{
 					case 'R':
-
+						instruction = check_R_inst(LINE_BUFFER);
+						printf("Instruction recieved: %s\n\n", instruction);
 						break;
 					case 'I':
+						instruction = check_I_inst(LINE_BUFFER);
+						printf("Instruction recieved: %s\n\n", instruction);
 						break;
 					case 'J':
 						instruction = check_J_inst(LINE_BUFFER);

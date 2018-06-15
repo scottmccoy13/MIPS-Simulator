@@ -45,17 +45,16 @@ void build_R_tree()
 	int j;
 
 	r_tree_root = newNode();
-	fp = fopen("input/r_function_codes.txt", "r");
+	fp = fopen("../input/r_function_codes.txt", "r");
 	i = 0;
 	
 	for(j = 0; j < FCODESIZE; j++)
 	{
 		function_code[j] = 0;
 	}
-	for(j = 0; j < FNAMESIZE; j++)
-	{
-		function_name[j] = ';';
-	}
+	
+	function_name[0] = '\0';
+	
 
 	if(fp)
 	{
@@ -81,6 +80,7 @@ void build_R_tree()
 			{
 				printf("\n");
 				j = 0;
+				function_name[0] = '\0';
 				//extract data from line
 				printf("Function name: ");
 				while((c = getc(fp)) != ';')
@@ -92,6 +92,7 @@ void build_R_tree()
 						++j;
 					}
 				}
+				function_name[j] = '\0';
 				printf("\n");
 
 				//insert into tree
@@ -132,7 +133,10 @@ void build_R_tree()
 					}
 				}
 				//reset memory for function_name
-				function_name[0] = '\0';
+				for(j = 0; j < 6; ++j)
+				{
+					function_name[0] = '\0';	
+				}
 				i = 0;
 			}
 		}
