@@ -81,7 +81,7 @@ void build_R_tree()
 				printf("\n");
 				j = 0;
 				function_name[0] = '\0';
-				//extract data from line
+				//extract function name from line
 				printf("Function name: ");
 				while((c = getc(fp)) != ';')
 				{

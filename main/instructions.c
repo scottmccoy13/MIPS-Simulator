@@ -18,7 +18,7 @@
 #define F13 13
 #define F14 14
 #define F15 15
-#define F16 16 
+#define F16 16
 #define F17 17
 #define F18 18
 #define F19 19
@@ -45,7 +45,9 @@ int keyFromString(char* key)
 	int i;
 	for(i = 0; i < NUMKEYS; i++)
 	{
-		t_symstruct *sym = lookupTable + (i * sizeof(t_symstruct));
+		//this iterates through the lookup table
+		t_symstruct *sym = lookupTable + i;
+		//printf("Current instruction: %s\t LookupTable instruction: %s\n", key, sym->key);
 		if(strcmp(sym->key, key) == 0)
 		{
 			return sym->val;
@@ -166,8 +168,7 @@ void JR(int x[])
 
 fptr selectInstruction(char* input)
 {
-	fptr f;
-	printf("Name recieved: %s\n", input);
+	//printf("Name recieved: %s\n", input);
 	switch(keyFromString(input))
 	{
 		case F1:
