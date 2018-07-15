@@ -22,7 +22,7 @@ int main(void)
 	fp = fopen("../input/input.txt", "r");
 
 	build_R_tree();
-	//build_I_tree();
+	build_I_tree();
 
 	//MAIN LOOP
 	//read input from file

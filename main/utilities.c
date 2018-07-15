@@ -54,7 +54,6 @@ void build_R_tree()
 	}
 	
 	function_name[0] = '\0';
-	
 
 	if(fp)
 	{
@@ -65,35 +64,35 @@ void build_R_tree()
 				//extract function code from line
 				if(c == 48)
 				{
-					printf("%c", c);
+					//printf("%c", c);
 					function_code[i] = 0;
 					++i;
 				}
 				else if(c == 49)
 				{
-					printf("%c", c);
+					//printf("%c", c);
 					function_code[i] = 1;
 					++i;
 				}
 			}
 			else
 			{
-				printf("\n");
+				//printf("\n");
 				j = 0;
 				function_name[0] = '\0';
 				//extract function name from line
-				printf("Function name: ");
+				//printf("Function name: ");
 				while((c = getc(fp)) != ';')
 				{
 					if(c != ':')
 					{
-						printf("%c", c);
+						//printf("%c", c);
 						function_name[j] = c;
 						++j;
 					}
 				}
 				function_name[j] = '\0';
-				printf("\n");
+				//printf("\n");
 
 				//insert into tree
 				curr = r_tree_root;
@@ -144,29 +143,25 @@ void build_R_tree()
 	}
 }
 
-/*
 void build_I_tree()
 {
 	FILE *fp; //pointer to input file
 	struct node *curr;
 	char function_name[FNAMESIZE];
-	int function_code[FCODESIZE];
+	int op_code[FCODESIZE];
 	int c;
 	int i;
 	int j;
 
-	i_tree_root = newNode("NULL");
+	i_tree_root = newNode();
 	fp = fopen("input/i_function_codes.txt", "r");
 	i = 0;
 	
 	for(j = 0; j < FCODESIZE; j++)
 	{
-		function_code[j] = 0;
+		op_code[j] = 0;
 	}
-	for(j = 0; j < FNAMESIZE; j++)
-	{
-		function_name[j] = ';';
-	}
+	function_name[0] = '\0';
 
 	if(fp)
 	{
@@ -178,13 +173,13 @@ void build_I_tree()
 				if(c == 48)
 				{
 					printf("%c", c);
-					function_code[i] = 0;
+					op_code[i] = 0;
 					++i;
 				}
 				else if(c == 49)
 				{
 					printf("%c", c);
-					function_code[i] = 1;
+					op_code[i] = 1;
 					++i;
 				}
 			}
@@ -209,33 +204,37 @@ void build_I_tree()
 				curr = r_tree_root;
 				for(j = 0; j < 6; ++j)
 				{
-					if(function_code[j] == 0)
+					if(op_code[j] == 0)
 					{
 						if(j == 5)
 						{
-							curr->left = newNode(function_name);
+							curr->left = newNode();
+							curr = curr->left;
+							curr->fptr = selectInstruction(function_name); //in this case fptr refers to the opcode
 						}
 						else
 						{
-							curr->left = newNode("NULL");
+							curr->left = newNode();
 							curr = curr->left;
 						}
 					}
-					else if(function_code[j] == 1)
+					else if(op_code[j] == 1)
 					{
 						if(j == 5)
 						{
-							curr->right = newNode(function_name);
+							curr->right = newNode();
+							curr = curr->right;
+							curr->fptr = selectInstruction(function_name);
 						}
 						else
 						{
-							curr->right = newNode("NULL");
+							curr->right = newNode();
 							curr = curr->right;
 						}
 					}
 					else
 					{
-						printf("ERROR IN R TREE CREATION\n");
+						printf("ERROR IN I TREE CREATION\n");
 					}
 				}
 				//reset memory for function_name
@@ -243,7 +242,6 @@ void build_I_tree()
 				i = 0;
 			}
 		}
-		printf("R tree has been constructed\n\n");
+		printf("I tree has been constructed\n\n");
 	}
 }
-*/
