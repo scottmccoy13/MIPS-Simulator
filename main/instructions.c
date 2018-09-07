@@ -25,6 +25,23 @@
 #define F20 20
 #define F21 21
 #define F22 22
+#define F23 23
+#define F24 24
+#define F25 25 
+#define F26 26
+#define F27 27
+#define F28 28
+#define F29 29
+#define F30 30
+#define F31 31
+#define F32 32
+#define F33 33
+#define F34 34
+#define F35 35
+#define F36 36
+#define F37 37 
+#define F38 38
+#define F39 39
 
 typedef void (*fptr)(int x[]);
 typedef struct { char *key; int val;} t_symstruct;
@@ -35,7 +52,11 @@ static t_symstruct lookupTable[] = {
 	{"MULTU", F9}, {"OR", F10}, {"SLL", F11}, {"SLLV", F12},
 	{"SLT", F13}, {"SLTU", F14}, {"SRA", F15}, {"SRL", F16},
 	{"SRLV", F17}, {"SUB", F18}, {"SUBU", F19}, {"SYSCALL", F20}, 
-	{"XOR", F21}, {"JR", F22}
+	{"XOR", F21}, {"JR", F22}, {"ADDI", F23}, {"ADDIU", F24}, 
+	{"ANDI", F25}, {"BEQ", F26}, {"B*", F27}, {"BGTZ", F28},
+	{"BLEZ", F29}, {"BNE", F30}, {"LB", F31}, {"LUI", F32},
+	{"LW", F33}, {"ORI", F34}, {"SB", F35}, {"SLTI", F36},
+	{"SLTIU", F37}, {"SW", F38}, {"XORI", F39}
 };
 
 #define NUMKEYS (sizeof(lookupTable) / sizeof(t_symstruct))
@@ -165,6 +186,8 @@ void JR(int x[])
 {
 	printf("Executing JR instruction\n");
 }
+
+
 
 fptr selectInstruction(char* input)
 {

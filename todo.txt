@@ -2,4 +2,4 @@ Functions that need extra checking beyond the tree:
 
 BGEZ, BGEZAL, BLTZ share an opcode
 
-Add the I type instructions to instructions.c
+Add the I type instruction functions to instructions.c
